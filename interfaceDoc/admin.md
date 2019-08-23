@@ -1,7 +1,7 @@
 # 接口文档
 
 ## /vX/api/user/login
----
+
 * Base Information:
 API path | Method | Format | Description
 /vX/api/user/login | POST | JSON | 用户登录
@@ -39,10 +39,10 @@ fail:
     "msg": 'request failed!'
 }
 ```
----
+
 
 ## /vX/api/user/get_info
----
+
 * Base Information:
 API path | Method | Format | Description
 /vX/api/user/get_info | POST | JSON | 获取用户信息
@@ -85,10 +85,10 @@ fail:
     "msg": 'request failed!'
 }
 ```
----
+
 
 ## /vX/api/user/logout
----
+
 * Base Information:
 API path | Method | Format | Description
 /vX/api/user/logout | POST | JSON | 用户登出
@@ -119,4 +119,3 @@ fail:
     "msg": 'request failed!'
 }
 ```
----
