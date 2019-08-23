@@ -36,9 +36,15 @@ export default {
           username,
           password
         }).then(res => {
+          console.log(res)
           const data = res.data
           commit('setToken', data.token)
-          resolve()
+          // 同时更新用户数据
+          commit('setAvator', data.avator)
+          commit('setUserName', data.user_name)
+          commit('setUserId', data.user_id)
+          commit('setAccess', data.access)
+          resolve(res)
         }).catch(err => {
           reject(err)
         })

@@ -7,6 +7,8 @@ import store from './store'
 import iView from 'iview'
 import locale from 'iview/dist/locale/en-US'
 import 'iview/dist/styles/iview.css'
+// 实际打包时应该不引入mock
+import '@/mock'
 
 Vue.use(iView, { locale })
 

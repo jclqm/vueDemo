@@ -63,7 +63,9 @@ export default {
       this.handleLogin(param).then(res => {
         console.debug('res:%o', res)
         if (parseInt(res.code) === 0) {
-          this.getCurrentUserData()
+          // this.getCurrentUserData()
+          // 跳转到首页
+          this.$router.push('/admin/home')
         }
       }, err => {
         console.error('err:%o', err)
