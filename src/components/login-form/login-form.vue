@@ -3,14 +3,14 @@
     <FormItem prop="userName">
       <Input v-model="form.userName" placeholder="Please input your account name">
         <span slot="prepend">
-          <Icon :size="16" type="person"></Icon>
+          <Icon :size="16" type="ios-person" slot="prefix"></Icon>
         </span>
       </Input>
     </FormItem>
     <FormItem prop="password">
       <Input type="password" v-model="form.password" placeholder="Please input your password">
         <span slot="prepend">
-          <Icon :size="14" type="locked"></Icon>
+          <Icon :size="14" type="ios-lock" slot="prefix"></Icon>
         </span>
       </Input>
     </FormItem>

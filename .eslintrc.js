@@ -25,7 +25,9 @@ module.exports = {
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // 空格
-    'indent': ['error', 4]
+    // input 闭合标签的警告
+    "vue/no-parsing-error": [2, { "x-invalid-end-tag": false }],
+    // 缩进空格
+    'indent': ['error', 2]
   }
 }
