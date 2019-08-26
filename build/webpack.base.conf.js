@@ -36,6 +36,8 @@ module.exports = {
       '@': resolve('src'),
       '_conf': resolve('config'),
       '_c': resolve('src/components'),
+      '_admin': resolve('src/pages/admin'),
+      '_index': resolve('src/pages/index'),
     }
   },
   module: {

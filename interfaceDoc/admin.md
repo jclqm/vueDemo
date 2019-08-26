@@ -68,7 +68,7 @@ success:
     'msg': 'success',
     'data': {
         'id': '1',
-        'itcode': 'liqm3',
+        'itcode': 'admin',
         'title': 'frontend developer',
         'name': 'Li XiaoMing',
         'avatar': 'http://km.xpaas.lenovo.com/download/attachments/8659977/user-avatar',

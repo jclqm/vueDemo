@@ -5,16 +5,18 @@ const USER_MAP = {
   super_admin: {
     name: 'super_admin',
     user_id: '1',
-    access: ['super_admin', 'admin', 'test'],
     token: 'super_admin',
-    avator: 'https://file.iviewui.com/dist/a0e88e83800f138b94d2414621bd9704.png'
+    avator: 'https://file.iviewui.com/dist/a0e88e83800f138b94d2414621bd9704.png',
+    access: ['super_admin', 'admin', 'test'],
+    permissions: [1, 2, 3, 4, 5]
   },
   admin: {
     name: 'admin',
     user_id: '2',
-    access: ['admin'],
     token: 'admin',
-    avator: 'https://avatars0.githubusercontent.com/u/20942571?s=460&v=4'
+    avator: 'https://avatars0.githubusercontent.com/u/20942571?s=460&v=4',
+    access: ['admin'],
+    permissions: [3, 4, 5]
   }
 }
 

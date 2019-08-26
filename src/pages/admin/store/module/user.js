@@ -7,7 +7,8 @@ export default {
     userId: '',
     avatorImgPath: '',
     token: getToken(),
-    access: ''
+    access: [],
+    permissions: []
   },
   mutations: {
     setAvator (state, avatorPath) {
@@ -21,6 +22,9 @@ export default {
     },
     setAccess (state, access) {
       state.access = access
+    },
+    setPermissions (state, permissions) {
+      state.permissions = permissions
     },
     setToken (state, token) {
       state.token = token
@@ -44,6 +48,7 @@ export default {
           commit('setUserName', data.user_name)
           commit('setUserId', data.user_id)
           commit('setAccess', data.access)
+          commit('setPermissions', data.permissions)
           resolve(res)
         }).catch(err => {
           reject(err)
@@ -56,6 +61,7 @@ export default {
         logout(state.token).then(() => {
           commit('setToken', '')
           commit('setAccess', [])
+          commit('setPermissions', [])
           resolve()
         }).catch(err => {
           reject(err)
@@ -75,6 +81,7 @@ export default {
           commit('setUserName', data.user_name)
           commit('setUserId', data.user_id)
           commit('setAccess', data.access)
+          commit('setPermissions', data.permissions)
           resolve(data)
         }).catch(err => {
           reject(err)
