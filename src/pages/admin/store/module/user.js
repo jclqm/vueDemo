@@ -8,6 +8,7 @@ export default {
     avatorImgPath: '',
     token: getToken(),
     access: [],
+    hasGetInfo: false,
     permissions: []
   },
   mutations: {
@@ -29,6 +30,9 @@ export default {
     setToken (state, token) {
       state.token = token
       setToken(token)
+    },
+    setHasGetInfo (state, status) {
+      state.hasGetInfo = status
     }
   },
   actions: {
@@ -82,6 +86,7 @@ export default {
           commit('setUserId', data.user_id)
           commit('setAccess', data.access)
           commit('setPermissions', data.permissions)
+          commit('setHasGetInfo', true)
           resolve(data)
         }).catch(err => {
           reject(err)

@@ -65,7 +65,7 @@ export default {
         if (parseInt(res.code) === 0) {
           // this.getCurrentUserData()
           // 跳转到首页
-          this.$router.push('/admin/home')
+          this.$router.push('/admin/')
         }
       }, err => {
         console.error('err:%o', err)

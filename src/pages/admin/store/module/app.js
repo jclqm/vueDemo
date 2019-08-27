@@ -1,14 +1,23 @@
-// import {
-//   getHomeRoute
-// } from '@/libs/util'
-// import routers from '_pme/router/routers'
+import {
+  getMenuByRouter,
+  localRead
+} from '@/libs/util'
+import routers from '_admin/router/routers'
 
 export default {
   state: {
-    // homeRoute: getHomeRoute(routers)
+    breadCrumbList: [],
+    tagNavList: [],
+    homeRoute: {},
+    local: localRead('local'),
+    errorList: [],
+    hasReadErrorPage: false
   },
   getters: {
-
+    menuList: (state, getters, rootState) => {
+      console.log(state, getters, rootState)
+      return getMenuByRouter(routers, rootState.user.access)
+    }
   },
   mutations: {
 
