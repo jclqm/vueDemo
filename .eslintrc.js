@@ -21,6 +21,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    // ...(config.dev.useEslint ? [createLintingRule()] : []), // 去检测自定义标签绑定key检测
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development

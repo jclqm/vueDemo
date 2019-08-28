@@ -5,29 +5,18 @@
   <div class="layout">
     <Layout>
       <Sider ref="side1" hide-trigger collapsible :collapsed-width="78" v-model="isCollapsed">
-        <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']">
-          <Submenu name="1">
-            <template slot="title">
-              <Icon type="ios-navigate"></Icon>Item 1
-            </template>
-            <MenuItem name="1-1">Option 1</MenuItem>
-            <MenuItem name="1-2">Option 2</MenuItem>
-            <MenuItem name="1-3">Option 3</MenuItem>
-          </Submenu>
-          <Submenu name="2">
-            <template slot="title">
-              <Icon type="ios-keypad"></Icon>Item 2
-            </template>
-            <MenuItem name="2-1">Option 1</MenuItem>
-            <MenuItem name="2-2">Option 2</MenuItem>
-          </Submenu>
-          <Submenu name="3">
-            <template slot="title">
-              <Icon type="ios-analytics"></Icon>Item 3
-            </template>
-            <MenuItem name="3-1">Option 1</MenuItem>
-            <MenuItem name="3-2">Option 2</MenuItem>
-          </Submenu>
+        <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']"  @on-select="turnToPage">
+          <template v-for="(sitem, index) in menuList">
+            <Submenu v-if="sitem.children && sitem.children.length" :name="sitem.name" :key="index">
+              <template slot="title">
+                <Icon :type="sitem.meta.icon"></Icon><span>{{sitem.name}}</span>
+              </template>
+              <template v-if="sitem.children && sitem.children.length">
+                <MenuItem :name="`${sitem.name}-${mitem.name}`" v-for="(mitem, i) in sitem.children" :key="`${index}-${i}`"><Icon :type="mitem.meta.icon"></Icon><span>{{mitem.name}}</span></MenuItem>
+              </template>
+            </Submenu>
+            <MenuItem v-else :name="sitem.name" :key="index"><Icon :type="sitem.meta.icon"></Icon><span>{{sitem.name}}</span></MenuItem>
+          </template>
         </Menu>
       </Sider>
       <Layout>
@@ -41,8 +30,9 @@
           ></Icon>
         </Header>
         <Content :style="{margin: '20px', background: '#fff', minHeight: '260px'}">
-          Content
-          {{menuList}}
+          <keep-alive>
+            <router-view/>
+          </keep-alive>
         </Content>
       </Layout>
     </Layout>
@@ -70,6 +60,32 @@ export default {
   methods: {
     collapsedSider () {
       this.$refs.side1.toggleCollapse()
+    },
+    turnToPage (route) {
+      console.log(route)
+      if (route.indexOf('overview') > -1) {
+        this.$router.push({path: '/admin/overview'})
+      } else {
+        this.$router.push({path: '/admin/test1'})
+      }
+      // console.log(route)
+      // let { name, params, query } = {}
+      // console.log(name, params, query)
+      // if (typeof route === 'string') name = route
+      // else {
+      //   name = route.name
+      //   params = route.params
+      //   query = route.query
+      // }
+      // if (name.indexOf('isTurnByHref_') > -1) {
+      //   window.open(name.split('_')[1])
+      //   return
+      // }
+      // this.$router.push({
+      //   name,
+      //   params,
+      //   query
+      // })
     }
   }
 }

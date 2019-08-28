@@ -18,7 +18,6 @@ const turnTo = (to, access, next) => {
 }
 
 router.beforeEach((to, from, next) => {
-  console.log('to, from, next -> ', to, from, next)
   iView.LoadingBar.start()
   const token = getToken()
   if (to.name === 'error_401' || to.name === 'error_404' || to.name === 'error_500') {

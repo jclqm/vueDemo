@@ -33,27 +33,43 @@ export default [
     name: 'adminHome',
     redirect: adminRouteMap('/overview'),
     component: Home,
-    // meta: {
-    //   hideInMenu: true,
-    //   notCache: true
-    // },
+    meta: {
+      hideInMenu: false,
+      notCache: true,
+      icon: 'md-home'
+    },
     children: [
       {
         path: adminRouteMap('/overview'),
         name: 'overview',
         meta: {
-          // hideInMenu: false,
-          // notCache: true,
+          hideInMenu: false,
+          notCache: true,
           title: '信息总览',
-          icon: 'md-home'
+          icon: 'ios-book'
         },
         component: () => import('@/view/admin/overview')
+      },
+      {
+        path: adminRouteMap('/test1'),
+        name: 'Test1',
+        meta: {
+          hideInMenu: false,
+          access: ['test'],
+          icon: 'md-notifications'
+        },
+        component: () => import('@/view/admin/test')
       }
     ]
   },
   {
     path: adminRouteMap('/test'),
     name: 'Test',
+    meta: {
+      hideInMenu: false,
+      access: ['test'],
+      icon: 'md-notifications'
+    },
     component: () => import('@/view/admin/test')
   },
   {

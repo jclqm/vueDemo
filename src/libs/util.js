@@ -20,7 +20,6 @@ export const hasChild = (item) => {
 }
 
 const showThisMenuEle = (item, access) => {
-  console.log('showThisMenuEle -> ', item, access)
   if (item.meta && item.meta.access && item.meta.access.length) {
     if (hasOneOf(item.meta.access, access)) return true
     else return false
@@ -31,10 +30,8 @@ const showThisMenuEle = (item, access) => {
  * @returns {Array}
  */
 export const getMenuByRouter = (list, access) => {
-  console.log('list, access -> ', list, access)
   let res = []
   forEach(list, item => {
-    console.log(item.meta && !item.meta.hideInMenu)
     if (item.meta && !item.meta.hideInMenu) {
       let obj = {
         icon: (item.meta && item.meta.icon) || '',
@@ -48,7 +45,6 @@ export const getMenuByRouter = (list, access) => {
       if (showThisMenuEle(item, access)) res.push(obj)
     }
   })
-  console.log('res', res)
   return res
 }
 
@@ -141,7 +137,6 @@ const hasAccess = (access, route) => {
  * @description 用户是否可跳转到该页
  */
 export const canTurnTo = (name, access, routes) => {
-  console.log('canTurnTo -> ', name, access, routes)
   const getHasAccessRouteNames = (list) => {
     let res = []
     list.forEach(item => {
@@ -158,7 +153,6 @@ export const canTurnTo = (name, access, routes) => {
     return res
   }
   const canTurnToNames = getHasAccessRouteNames(routes)
-  console.log(canTurnToNames)
   return canTurnToNames.indexOf(name) > -1
 }
 
