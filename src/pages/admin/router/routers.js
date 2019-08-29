@@ -1,4 +1,4 @@
-import Home from '@/view/admin/home'
+import Main from '@/components/main'
 import Login from '_admin/login/login.vue'
 import { adminRouteMap } from '@/libs/util'
 
@@ -32,7 +32,7 @@ export default [
     path: adminRouteMap('/'),
     name: 'adminHome',
     redirect: adminRouteMap('/overview'),
-    component: Home,
+    component: Main,
     meta: {
       hideInMenu: false,
       notCache: true,
@@ -62,16 +62,16 @@ export default [
       }
     ]
   },
-  {
-    path: adminRouteMap('/test'),
-    name: 'Test',
-    meta: {
-      hideInMenu: false,
-      access: ['test'],
-      icon: 'md-notifications'
-    },
-    component: () => import('@/view/admin/test')
-  },
+  // {
+  //   path: adminRouteMap('/test'),
+  //   name: 'Test',
+  //   meta: {
+  //     hideInMenu: false,
+  //     access: ['test'],
+  //     icon: 'md-notifications'
+  //   },
+  //   component: () => import('@/view/admin/test')
+  // },
   {
     path: adminRouteMap('/401'),
     name: 'error_401',
