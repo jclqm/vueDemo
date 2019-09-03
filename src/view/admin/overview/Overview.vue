@@ -318,7 +318,7 @@ export default {
           nowstatus2: '0',
           nowstatus4: '0',
           nowstatus7: '0'
-        },
+        }
       ]
     }
   },

@@ -29,6 +29,7 @@ module.exports = {
     // input 闭合标签的警告
     "vue/no-parsing-error": [2, { "x-invalid-end-tag": false }],
     // 缩进空格
-    'indent': ['error', 2]
+    // 'indent': ['error', 2]
+    'indent': 0
   }
 }
